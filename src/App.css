@@ -1,0 +1,50 @@
+/* Shared layout & component utilities */
+
+.section-label {
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-warm-stone);
+  margin-bottom: var(--spacing-8);
+}
+
+.btn-filled {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 10px 24px;
+  background: var(--surface-charcoal-surface);
+  color: var(--surface-parchment-canvas);
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-body-sm);
+  transition: opacity 0.15s;
+}
+
+.btn-filled:hover {
+  opacity: 0.85;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--color-ink-black);
+  border: 1px solid var(--color-ink-black);
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-body-sm);
+  transition: background 0.15s;
+}
+
+.btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
