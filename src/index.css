@@ -139,6 +139,61 @@ button {
   outline-offset: 2px;
 }
 
+/* Animations */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-in {
+  opacity: 0;
+}
+
+.animate-in--visible {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-in--fade {
+  opacity: 0;
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-in--left {
+  opacity: 0;
+  animation: fade-in-left 0.6s ease-out forwards;
+}
+
+.animate-in--right {
+  opacity: 0;
+  animation: fade-in-right 0.6s ease-out forwards;
+}
+
+.animate-in--delay-1 { animation-delay: 0.1s; }
+.animate-in--delay-2 { animation-delay: 0.2s; }
+.animate-in--delay-3 { animation-delay: 0.3s; }
+.animate-in--delay-4 { animation-delay: 0.4s; }
+.animate-in--delay-5 { animation-delay: 0.5s; }
+.animate-in--delay-6 { animation-delay: 0.6s; }
+.animate-in--delay-7 { animation-delay: 0.7s; }
+.animate-in--delay-8 { animation-delay: 0.8s; }
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -146,5 +201,14 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .animate-in,
+  .animate-in--visible,
+  .animate-in--fade,
+  .animate-in--left,
+  .animate-in--right {
+    opacity: 1;
+    transform: none;
   }
 }

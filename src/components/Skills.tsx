@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import './Skills.css'
 
 const groups = [
@@ -28,10 +29,12 @@ const groups = [
 ]
 
 export default function Skills() {
+  const { ref, inView } = useInView()
+
   return (
-    <section className="skills" id="skills">
-      <h2 className="section-label">Technical Skills</h2>
-      <div className="skills-grid">
+    <section className="skills" id="skills" ref={ref}>
+      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Technical Skills</h2>
+      <div className={`skills-grid ${inView ? 'animate-in--visible' : 'animate-in'}`}>
         {groups.map((group) => (
           <div key={group.name}>
             <h3 className="skills-group-heading">{group.name}</h3>

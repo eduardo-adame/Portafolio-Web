@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import './Projects.css'
 
 const projects = [
@@ -25,12 +26,14 @@ const projects = [
 ]
 
 export default function Projects() {
+  const { ref, inView } = useInView()
+
   return (
-    <section className="projects" id="projects">
-      <h2 className="section-label">Featured Projects</h2>
+    <section className="projects" id="projects" ref={ref}>
+      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Featured Projects</h2>
       <div className="projects-grid">
-        {projects.map((p) => (
-          <article key={p.title} className="project-card">
+        {projects.map((p, i) => (
+          <article key={p.title} className={`project-card ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>
             <div className="project-card-text">
               <h3>{p.title}</h3>
               <p><strong>Problem:</strong> {p.problem}</p>

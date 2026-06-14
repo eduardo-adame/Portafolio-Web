@@ -28,14 +28,14 @@ const badges = [
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-      <h1 className="hero-headline">
+      <h1 className="hero-headline animate-in--visible">
         Full Stack Developer
       </h1>
-      <p className="hero-subtitle">
+      <p className="hero-subtitle animate-in--visible animate-in--delay-1">
         I design, build, deploy, and maintain modern web applications
         that solve real problems with clean, reliable code.
       </p>
-      <div className="hero-actions">
+      <div className="hero-actions animate-in--fade animate-in--delay-2">
         <a href="#projects" className="btn-filled">
           View my work
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -49,15 +49,15 @@ export default function Hero() {
         <div className="flow-lines" />
 
         <div className="flow-sources">
-          {sources.map((s) => (
-            <div key={s.label} className="flow-tag">
+          {sources.map((s, i) => (
+            <div key={s.label} className={`flow-tag animate-in--left animate-in--delay-${i + 2}`}>
               <span className="flow-tag-icon" aria-hidden="true">{s.icon}</span>
               {s.label}
             </div>
           ))}
         </div>
 
-        <div className="flow-center">
+        <div className="flow-center animate-in--fade animate-in--delay-5">
           <div className="flow-center-glow" aria-hidden="true" />
           <div className="flow-center-node">
             <svg className="flow-center-node-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -76,8 +76,8 @@ export default function Hero() {
         </div>
 
         <div className="flow-destinations">
-          {destinations.map((d) => (
-            <div key={d.label} className="flow-tag">
+          {destinations.map((d, i) => (
+            <div key={d.label} className={`flow-tag animate-in--right animate-in--delay-${i + 3}`}>
               {d.label}
               <span className="flow-tag-icon" aria-hidden="true">{d.icon}</span>
             </div>

@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import './Experience.css'
 
 const items = [
@@ -25,12 +26,14 @@ const items = [
 ]
 
 export default function Experience() {
+  const { ref, inView } = useInView()
+
   return (
-    <section className="experience" id="experience">
-      <h2 className="section-label">Experience</h2>
+    <section className="experience" id="experience" ref={ref}>
+      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Experience</h2>
       <div className="experience-list">
-        {items.map((item) => (
-          <div key={item.title} className="experience-item">
+        {items.map((item, i) => (
+          <div key={item.title} className={`experience-item ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>
             <div className="experience-item-header">
               <h3 className="experience-item-title">{item.title}</h3>
               <span className="experience-item-date">{item.date}</span>

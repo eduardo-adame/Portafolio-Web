@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import './About.css'
 
 const values = [
@@ -10,9 +11,11 @@ const values = [
 ]
 
 export default function About() {
+  const { ref, inView } = useInView()
+
   return (
-    <section className="about" id="about">
-      <div className="about-content">
+    <section className="about" id="about" ref={ref}>
+      <div className={`about-content ${inView ? 'animate-in--visible' : 'animate-in'}`}>
         <div className="about-text">
           <h2 className="section-label">About</h2>
           <p>
