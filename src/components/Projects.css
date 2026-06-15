@@ -4,7 +4,6 @@
   margin: 0 auto;
 }
 
-
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -50,6 +49,18 @@
   text-transform: uppercase;
   color: var(--color-ink-black);
   font-weight: var(--font-weight-medium);
+}
+
+.project-links {
+  display: flex;
+  gap: var(--spacing-12);
+  margin: var(--spacing-20) 0;
+}
+
+.project-links .btn-filled,
+.project-links .btn-ghost {
+  padding: 6px 18px;
+  font-size: var(--text-caption);
 }
 
 .project-card-tech {

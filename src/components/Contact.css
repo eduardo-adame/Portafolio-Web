@@ -5,7 +5,6 @@
   text-align: center;
 }
 
-
 .contact-intro {
   font-size: var(--text-subheading);
   letter-spacing: var(--tracking-subheading);
@@ -40,6 +39,4 @@
   .contact {
     padding: var(--spacing-40) var(--spacing-16);
   }
-
-
 }

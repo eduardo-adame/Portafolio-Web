@@ -119,7 +119,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 ::selection {
   background: var(--color-charcoal);
   color: var(--surface-parchment-canvas);
@@ -176,16 +175,6 @@ button {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fade-in-left {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fade-in-right {
-  from { opacity: 0; transform: translateX(20px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
 .animate-in {
   /* opacity: 0; Removed to prevent blank content if observer fails */
 }
@@ -196,14 +185,6 @@ button {
 
 .animate-in--fade {
   animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-in--left {
-  animation: fade-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-in--right {
-  animation: fade-in-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-in--delay-1 { animation-delay: 0.15s; }
@@ -226,9 +207,7 @@ button {
 
   .animate-in,
   .animate-in--visible,
-  .animate-in--fade,
-  .animate-in--left,
-  .animate-in--right {
+  .animate-in--fade {
     opacity: 1;
     transform: none;
   }

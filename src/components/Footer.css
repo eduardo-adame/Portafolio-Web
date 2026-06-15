@@ -12,7 +12,7 @@
 }
 
 .footer-group-heading {
-  font-size: 12px;
+  font-size: var(--text-caption);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-weight: var(--font-weight-medium);

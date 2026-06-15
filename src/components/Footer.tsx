@@ -22,7 +22,6 @@ const groups = [
     links: [
       { label: 'Correo', href: 'mailto:hello@cesar.dev' },
       { label: 'GitHub', href: 'https://github.com/eduardo-adame' },
-      { label: 'LinkedIn', href: '#' },
     ],
   },
   {
