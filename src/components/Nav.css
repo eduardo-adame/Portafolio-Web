@@ -56,15 +56,20 @@
   align-items: center;
 }
 
+.nav-links-actions {
+  display: none;
+}
+
 /* Hamburger toggle — hidden on desktop */
 
 .nav-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 4px;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 44px;
   background: none;
   border: none;
   cursor: pointer;
@@ -73,7 +78,7 @@
 
 .nav-toggle-line {
   display: block;
-  width: 100%;
+  width: 28px;
   height: 1.5px;
   background: var(--color-ink-black);
   transition: transform 0.2s, opacity 0.2s;
@@ -110,7 +115,26 @@
 }
 
 @media (max-width: 768px) {
-  .nav {
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--spacing-16);
+  padding: var(--spacing-8) var(--spacing-16);
+  background: var(--color-charcoal);
+  color: var(--surface-parchment-canvas);
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-inputs);
+  z-index: calc(var(--z-tooltip) + 1);
+  transition: top 0.15s;
+}
+
+.skip-link:focus {
+  top: var(--spacing-8);
+}
+
+.nav {
     padding: 0 var(--spacing-16);
   }
 
@@ -146,6 +170,20 @@
   .nav-link:focus-visible {
     outline: 2px solid var(--color-ink-black);
     outline-offset: -2px;
+  }
+
+  .nav-links-actions {
+    display: flex;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links-actions .btn-ghost,
+  .nav-links-actions .btn-filled {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
   }
 
   .nav-actions .btn-ghost,

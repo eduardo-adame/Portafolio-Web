@@ -39,9 +39,9 @@
   --text-heading-lg: 40px;
   --leading-heading-lg: 1.2;
   --tracking-heading-lg: -0.8px;
-  --text-display: 80px;
-  --leading-display: 1.2;
-  --tracking-display: -1.6px;
+  --text-display: clamp(2rem, 5vw, 5rem);
+  --leading-display: 1.08;
+  --tracking-display: -0.04em;
 
   /* Weights */
   --font-weight-regular: 400;
@@ -63,7 +63,6 @@
 
   /* Layout */
   --page-max-width: 1200px;
-  --section-gap: 80px;
   --card-padding: 40px;
   --element-gap: 16px;
 

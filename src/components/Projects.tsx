@@ -113,7 +113,9 @@ export default function Projects() {
 
   return (
     <section className="projects" id="projects" ref={ref}>
-      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Proyectos Destacados</h2>
+      <div className={`${inView ? 'animate-in--fade' : 'animate-in'}`}>
+        <h2 className="section-heading">Proyectos Destacados</h2>
+      </div>
       <div className="projects-list">
         {projects.map((p, i) => {
           const animClass = inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'

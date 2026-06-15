@@ -30,7 +30,9 @@ export default function Experience() {
 
   return (
     <section className="experience" id="experience" ref={ref}>
-      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Experiencia</h2>
+      <div className={`${inView ? 'animate-in--fade' : 'animate-in'}`}>
+        <h2 className="section-heading">Experiencia</h2>
+      </div>
       <div className="experience-list">
         {items.map((item, i) => (
           <div key={item.title} className={`experience-item ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>

@@ -87,14 +87,12 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills" ref={ref}>
-      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Habilidades</h2>
-      <div className={`skills-rows${inView ? ' skills-rows--visible' : ''}`}>
+      <div className={`${inView ? 'animate-in--fade' : 'animate-in'}`}>
+        <h2 className="section-heading">Habilidades</h2>
+      </div>
+      <div className="skills-rows">
         {domains.map((domain, i) => (
-          <div
-            key={domain.name}
-            className="skills-row"
-            style={{ '--row-index': i } as React.CSSProperties}
-          >
+          <div key={domain.name} className={`skills-row ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>
             <h3 className="skills-row-label">{domain.name}</h3>
             <div className="skills-row-pills">
               {domain.items.map((item) => {

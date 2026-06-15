@@ -1,8 +1,9 @@
 .contact {
-  padding: var(--spacing-80) var(--spacing-40);
+  padding: clamp(var(--spacing-80), 10vh, var(--spacing-200)) var(--spacing-40);
   max-width: var(--page-max-width);
   margin: 0 auto;
   text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .contact-intro {

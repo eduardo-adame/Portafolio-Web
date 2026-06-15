@@ -9,11 +9,12 @@ const links = [
   { label: 'Contacto', href: '#contact' },
 ]
 
-const sectionIds = ['contact', 'experience', 'projects', 'skills', 'about', 'hero']
+const sectionIds = ['hero', 'about', 'skills', 'projects', 'experience', 'contact']
 
 export default function Nav() {
   const [active, setActive] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [downloading, setDownloading] = useState(false)
   const [downloadMsg, setDownloadMsg] = useState<string | null>(null)
   const menuRef = useRef<HTMLUListElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -72,18 +73,16 @@ export default function Nav() {
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
+      const current = active || 'hero'
+      const idx = sectionIds.indexOf(current)
       if (e.key === 'ArrowUp' || e.key === 'k') {
-        const idx = sectionIds.indexOf(active)
-        if (idx < sectionIds.length - 1) {
-          const next = document.getElementById(sectionIds[idx + 1])
-          next?.scrollIntoView({ behavior: 'smooth' })
+        if (idx > 0) {
+          document.getElementById(sectionIds[idx - 1])?.scrollIntoView({ behavior: 'smooth' })
         }
       }
       if (e.key === 'ArrowDown' || e.key === 'j') {
-        const idx = sectionIds.indexOf(active)
-        if (idx > 0) {
-          const prev = document.getElementById(sectionIds[idx - 1])
-          prev?.scrollIntoView({ behavior: 'smooth' })
+        if (idx < sectionIds.length - 1) {
+          document.getElementById(sectionIds[idx + 1])?.scrollIntoView({ behavior: 'smooth' })
         }
       }
     }
@@ -94,6 +93,7 @@ export default function Nav() {
 
   const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     const url = `${import.meta.env.BASE_URL}CV.pdf`
+    setDownloading(true)
     try {
       const res = await fetch(url, { method: 'HEAD' })
       if (!res.ok) {
@@ -107,12 +107,16 @@ export default function Nav() {
       setDownloadMsg('Error de conexión al descargar')
       setTimeout(() => setDownloadMsg(null), 4000)
       return
+    } finally {
+      setDownloading(false)
     }
     closeMenu()
   }
 
   return (
-    <nav className="nav" role="navigation" aria-label="Navegación principal">
+    <>
+      <a href="#main" className="skip-link">Saltar al contenido</a>
+      <nav className="nav" role="navigation" aria-label="Navegación principal">
       <a href="#hero" className="nav-brand" onClick={closeMenu}>E.A</a>
 
       <ul className={`nav-links${menuOpen ? ' nav-links--open' : ''}`} ref={menuRef}>
@@ -121,26 +125,41 @@ export default function Nav() {
             <a
               href={link.href}
               className={`nav-link${active === link.href.replace('#', '') ? ' nav-link--active' : ''}`}
+              aria-current={active === link.href.replace('#', '') ? 'true' : undefined}
               onClick={closeMenu}
             >
               {link.label}
             </a>
           </li>
         ))}
+        <li className="nav-links-actions">
+          <a href="#contact" className="btn-ghost" onClick={closeMenu}>Contactar</a>
+          <a
+            href={`${import.meta.env.BASE_URL}CV.pdf`}
+            className="btn-filled"
+            onClick={handleDownload}
+            download
+          >
+            Descargar CV
+          </a>
+        </li>
       </ul>
 
       <div className="nav-actions">
         <a href="#contact" className="btn-ghost" onClick={closeMenu}>Contactar</a>
         <a
           href={`${import.meta.env.BASE_URL}CV.pdf`}
-          className="btn-filled"
+          className={`btn-filled${downloading ? ' btn-loading' : ''}`}
           onClick={handleDownload}
           download
+          aria-busy={downloading}
         >
-          Descargar CV
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          {downloading ? 'Verificando…' : 'Descargar CV'}
+          {!downloading && (
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          )}
         </a>
         <button
           ref={toggleRef}
@@ -161,5 +180,6 @@ export default function Nav() {
         </div>
       )}
     </nav>
+    </>
   )
 }

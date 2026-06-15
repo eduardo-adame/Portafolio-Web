@@ -1,5 +1,5 @@
 .projects {
-  padding: var(--spacing-80) var(--spacing-40);
+  padding: clamp(var(--spacing-80), 10vh, var(--spacing-200)) var(--spacing-40);
   max-width: var(--page-max-width);
   margin: 0 auto;
 }
@@ -111,50 +111,50 @@
 }
 
 .gradient-blob--peach {
-  width: 200px;
-  height: 180px;
-  background: rgba(255, 148, 115, 0.3);
+  width: 240px;
+  height: 210px;
+  background: rgba(255, 148, 115, 0.4);
   filter: blur(35px);
   top: 5%;
   right: 5%;
 }
 
 .gradient-blob--lavender {
-  width: 220px;
-  height: 190px;
-  background: rgba(160, 181, 235, 0.28);
+  width: 260px;
+  height: 220px;
+  background: rgba(160, 181, 235, 0.35);
   filter: blur(35px);
-  bottom: 0;
+  bottom: -5%;
   left: 5%;
 }
 
 .gradient-blob--mint {
-  width: 180px;
-  height: 150px;
-  background: rgba(167, 252, 205, 0.25);
+  width: 210px;
+  height: 180px;
+  background: rgba(167, 252, 205, 0.3);
   filter: blur(30px);
-  bottom: 18%;
-  right: 25%;
+  bottom: 15%;
+  right: 20%;
 }
 
 .gradient-blob--amber {
-  width: 160px;
-  height: 200px;
-  background: rgba(226, 193, 97, 0.25);
+  width: 190px;
+  height: 230px;
+  background: rgba(226, 193, 97, 0.3);
   filter: blur(30px);
-  top: 22%;
-  left: 25%;
+  top: 18%;
+  left: 20%;
 }
 
 .gradient-shape--square {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 30%;
-  background: rgba(160, 181, 235, 0.35);
+  background: rgba(160, 181, 235, 0.4);
   filter: blur(12px);
   top: 55%;
-  right: 30%;
+  right: 28%;
 }
 
 .gradient-dot {

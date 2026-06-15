@@ -7,7 +7,7 @@
   max-width: var(--page-max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-40);
 }
 
@@ -40,7 +40,7 @@
   max-width: var(--page-max-width);
   margin: var(--spacing-40) auto 0;
   padding-top: var(--spacing-24);
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   text-align: center;
   font-size: var(--text-caption);
   letter-spacing: var(--tracking-caption);

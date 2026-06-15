@@ -12,22 +12,15 @@ const groups = [
     ],
   },
   {
-    heading: 'Proyectos',
-    links: [
-      { label: 'Ver todos los proyectos', href: '#projects' },
-    ],
-  },
-  {
     heading: 'Redes',
     links: [
-      { label: 'Correo', href: 'mailto:hello@cesar.dev' },
       { label: 'GitHub', href: 'https://github.com/eduardo-adame' },
+      { label: 'Correo', href: 'mailto:hello@cesar.dev' },
     ],
   },
   {
-    heading: 'Contacto',
+    heading: 'Recursos',
     links: [
-      { label: 'hello@cesar.dev', href: 'mailto:hello@cesar.dev' },
       { label: 'Descargar CV', href: `${import.meta.env.BASE_URL}CV.pdf` },
     ],
   },

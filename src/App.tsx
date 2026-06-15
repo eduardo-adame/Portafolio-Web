@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <Skills />
