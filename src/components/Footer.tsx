@@ -29,7 +29,7 @@ const groups = [
     heading: 'Contacto',
     links: [
       { label: 'hello@cesar.dev', href: 'mailto:hello@cesar.dev' },
-      { label: 'Descargar CV', href: '/CV.pdf' },
+      { label: 'Descargar CV', href: `${import.meta.env.BASE_URL}CV.pdf` },
     ],
   },
 ]
