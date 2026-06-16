@@ -9,6 +9,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cesar.dev" />
     <title>Eduardo Adame — Desarrollador Full Stack</title>
+    <script>
+      (function() {
+        var theme;
+        try { theme = localStorage.getItem('theme'); } catch(e) {}
+        if (!theme) {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

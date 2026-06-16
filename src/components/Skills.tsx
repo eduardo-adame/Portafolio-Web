@@ -87,18 +87,26 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills" ref={ref}>
-      <div className={`${inView ? 'animate-in--fade' : 'animate-in'}`}>
+      <div className={`skills-heading-wrap ${inView ? 'skills-heading-reveal' : ''}`}>
         <h2 className="section-heading">Habilidades</h2>
       </div>
       <div className="skills-rows">
         {domains.map((domain, i) => (
-          <div key={domain.name} className={`skills-row ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>
+          <div
+            key={domain.name}
+            className={`skills-row ${inView ? 'skills-row-reveal' : ''}`}
+            style={{ '--i': i } as React.CSSProperties}
+          >
             <h3 className="skills-row-label">{domain.name}</h3>
             <div className="skills-row-pills">
-              {domain.items.map((item) => {
+              {domain.items.map((item, j) => {
                 const Icon = iconMap[item]
                 return (
-                  <span key={item} className="skill-pill">
+                  <span
+                    key={item}
+                    className={`skill-pill ${inView ? 'skill-pill-reveal' : ''}`}
+                    style={{ '--j': j } as React.CSSProperties}
+                  >
                     {Icon && <Icon size={14} style={{ color: iconColor[item] }} aria-hidden="true" />}
                     {item}
                   </span>

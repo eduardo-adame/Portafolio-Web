@@ -88,10 +88,12 @@ const projects: Project[] = [
 ]
 
 function ProjectLinks({ demoUrl, sourceUrl }: { demoUrl?: string; sourceUrl?: string }) {
-  if (!demoUrl && !sourceUrl) return null
+  const hasDemo = typeof demoUrl === 'string' && demoUrl.length > 0
+  const hasSource = typeof sourceUrl === 'string' && sourceUrl.length > 0
+  if (!hasDemo && !hasSource) return null
   return (
     <div className="project-links">
-      {demoUrl && (
+      {hasDemo && (
         <a href={demoUrl} className="btn-ghost" target="_blank" rel="noopener noreferrer">
           Ver demo
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -99,7 +101,7 @@ function ProjectLinks({ demoUrl, sourceUrl }: { demoUrl?: string; sourceUrl?: st
           </svg>
         </a>
       )}
-      {sourceUrl && (
+      {hasSource && (
         <a href={sourceUrl} className="btn-filled" target="_blank" rel="noopener noreferrer">
           Ver código
         </a>
@@ -113,17 +115,17 @@ export default function Projects() {
 
   return (
     <section className="projects" id="projects" ref={ref}>
-      <div className={`${inView ? 'animate-in--fade' : 'animate-in'}`}>
-        <h2 className="section-heading">Proyectos Destacados</h2>
+      <div className={`projects-heading-wrap ${inView ? 'projects-heading-reveal' : ''}`}>
+        <h2 className="section-heading">Proyectos</h2>
       </div>
       <div className="projects-list">
         {projects.map((p, i) => {
-          const animClass = inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'
+          const cardAnim = inView ? 'project-card-reveal' : ''
 
           if (p.layout === 'architecture') {
             const arch = p as ArchitectureProject
             return (
-              <article key={arch.title} className={`project-card project-card--architecture ${animClass}`}>
+              <article key={arch.title} className={`project-card project-card--architecture ${cardAnim}`} style={{ '--i': i } as React.CSSProperties}>
                 <div className="project-card-text">
                   <h3>{arch.title}</h3>
                   <p><strong>Problema:</strong> {arch.problem}</p>
@@ -140,17 +142,6 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-                <div className="project-card-decor" aria-hidden="true">
-                  <div className="gradient-blob gradient-blob--peach" />
-                  <div className="gradient-blob gradient-blob--lavender" />
-                  <div className="gradient-blob gradient-blob--mint" />
-                  <div className="gradient-blob gradient-blob--amber" />
-                  <div className="gradient-shape gradient-shape--square" />
-                  <span className="gradient-dot" style={{ top: '22%', left: '35%', background: 'rgba(255,148,115,0.55)' }} />
-                  <span className="gradient-dot" style={{ top: '60%', left: '70%', background: 'rgba(160,181,235,0.55)' }} />
-                  <span className="gradient-dot" style={{ top: '80%', left: '22%', background: 'rgba(226,193,97,0.55)' }} />
-                  <span className="gradient-dot" style={{ top: '42%', left: '55%', background: 'rgba(255,148,115,0.45)' }} />
-                </div>
               </article>
             )
           }
@@ -158,16 +149,7 @@ export default function Projects() {
           if (p.layout === 'fullwidth') {
             const fw = p as FullwidthProject
             return (
-              <article key={fw.title} className={`project-card project-card--fullwidth ${animClass}`}>
-                <div className="project-card-decor" aria-hidden="true">
-                  <div className="gradient-blob gradient-blob--peach" />
-                  <div className="gradient-blob gradient-blob--lavender" />
-                  <div className="gradient-blob gradient-blob--mint" />
-                  <div className="gradient-blob gradient-blob--amber" />
-                  <div className="gradient-shape gradient-shape--square" />
-                  <span className="gradient-dot" style={{ top: '30%', left: '40%', background: 'rgba(160,181,235,0.55)' }} />
-                  <span className="gradient-dot" style={{ top: '65%', left: '20%', background: 'rgba(255,148,115,0.55)' }} />
-                </div>
+              <article key={fw.title} className={`project-card project-card--fullwidth ${cardAnim}`} style={{ '--i': i } as React.CSSProperties}>
                 <div className="project-card-text">
                   <h3>{fw.title}</h3>
                   <p><strong>Problema:</strong> {fw.problem}</p>
@@ -193,13 +175,7 @@ export default function Projects() {
 
           const comp = p as CompactProject
           return (
-            <article key={comp.title} className={`project-card project-card--compact ${animClass}`}>
-              <div className="project-card-decor" aria-hidden="true">
-                <div className="gradient-blob gradient-blob--mint" />
-                <div className="gradient-blob gradient-blob--amber" />
-                <span className="gradient-dot" style={{ top: '30%', left: '40%', background: 'rgba(160,181,235,0.5)' }} />
-                <span className="gradient-dot" style={{ top: '65%', left: '20%', background: 'rgba(255,148,115,0.5)' }} />
-              </div>
+            <article key={comp.title} className={`project-card project-card--compact ${cardAnim}`} style={{ '--i': i } as React.CSSProperties}>
               <div className="project-card-tech">
                 {comp.tech.map((t) => (
                   <span key={t} className="project-card-tech-item">{t}</span>

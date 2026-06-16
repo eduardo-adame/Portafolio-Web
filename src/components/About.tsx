@@ -6,9 +6,9 @@ export default function About() {
 
   return (
     <section className="about" id="about" ref={ref}>
-      <div className={`about-content ${inView ? 'animate-in--visible' : 'animate-in'}`}>
-        <div className="about-text">
-          <h2 className="section-heading">Sobre mí</h2>
+      <div className={`about-content ${inView ? 'about-reveal' : ''}`}>
+        <h2 className="section-heading about-heading">Sobre mí</h2>
+        <div className="about-body">
           <p>
             Soy un desarrollador full stack con experiencia creando aplicaciones
             de nivel productivo en todo el stack web. Desde diseño de bases de
@@ -22,16 +22,6 @@ export default function About() {
             cuando las decisiones técnicas están guiadas por necesidades reales
             de los usuarios y objetivos de negocio.
           </p>
-        </div>
-        <div className="about-manifesto">
-          <span className="about-manifesto-label">Manifiesto</span>
-          <blockquote>
-            <p>
-              El mejor código es el que se puede cambiar sin miedo,
-              probar sin configuración, y desplegar sin intervención manual.
-            </p>
-          </blockquote>
-          <cite className="about-manifesto-cite">— Eduardo Adame</cite>
         </div>
       </div>
     </section>

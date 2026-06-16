@@ -40,11 +40,24 @@
   max-width: var(--page-max-width);
   margin: var(--spacing-40) auto 0;
   padding-top: var(--spacing-24);
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid var(--color-border-muted);
   text-align: center;
   font-size: var(--text-caption);
   letter-spacing: var(--tracking-caption);
   color: var(--color-warm-stone);
+}
+
+/* --- Reveal --- */
+
+.footer-reveal {
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-reveal {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {

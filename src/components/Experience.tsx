@@ -30,20 +30,26 @@ export default function Experience() {
 
   return (
     <section className="experience" id="experience" ref={ref}>
-      <div className={`${inView ? 'animate-in--fade' : 'animate-in'}`}>
+      <div className={`experience-heading-wrap ${inView ? 'experience-heading-reveal' : ''}`}>
         <h2 className="section-heading">Experiencia</h2>
       </div>
-      <div className="experience-list">
-        {items.map((item, i) => (
-          <div key={item.title} className={`experience-item ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>
-            <div className="experience-item-header">
-              <h3 className="experience-item-title">{item.title}</h3>
-              <span className="experience-item-date">{item.date}</span>
+      <div className={`experience-timeline ${inView ? 'experience-timeline-reveal' : ''}`}>
+        <div className="experience-list">
+          {items.map((item, i) => (
+            <div
+              key={item.title}
+              className={`experience-item ${inView ? 'experience-item-reveal' : ''}`}
+              style={{ '--i': i } as React.CSSProperties}
+            >
+              <div className="experience-item-header">
+                <h3 className="experience-item-title">{item.title}</h3>
+                <span className="experience-item-date">{item.date}</span>
+              </div>
+              <div className="experience-item-company">{item.company}</div>
+              <p className="experience-item-description">{item.description}</p>
             </div>
-            <div className="experience-item-company">{item.company}</div>
-            <p className="experience-item-description">{item.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

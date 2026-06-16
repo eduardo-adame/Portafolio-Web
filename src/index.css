@@ -6,11 +6,7 @@
   --color-graphite: #4e4d4d;
   --color-slate-shadow: #3d3d3d;
   --color-warm-stone: #666463;
-  --color-warm-beige: #ece0d4;
-  --color-peach-to-periwinkle-wash: #ff9473;
-  --gradient-peach-to-periwinkle-wash: linear-gradient(rgba(255, 148, 115, 0.8) 7%, rgba(160, 181, 235, 0.8) 83.82%);
-  --color-mint-to-periwinkle-wash: #a7fccd;
-  --gradient-mint-to-periwinkle-wash: linear-gradient(rgb(160, 181, 235), rgb(167, 252, 205));
+  --color-border-muted: rgba(0, 0, 0, 0.12);
 
   /* Font Families */
   --font-untitled-serif: 'Untitled Serif', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -25,7 +21,7 @@
   --leading-body-sm: 1.35;
   --tracking-body-sm: -0.28px;
   --text-body: 16px;
-  --leading-body: 1.35;
+  --leading-body: 1.6;
   --tracking-body: -0.32px;
   --text-subheading: 18px;
   --leading-subheading: 1.35;
@@ -85,8 +81,22 @@
 
   /* Surfaces */
   --surface-parchment-canvas: #f6f3f1;
-  --surface-warm-card: #ece0d4;
   --surface-charcoal-surface: #242424;
+}
+
+[data-theme='dark'] {
+  --color-parchment-cream: #1a1a1a;
+  --color-ink-black: #f6f3f1;
+  --color-charcoal: #e8e4e0;
+  --color-graphite: #a8a4a2;
+  --color-slate-shadow: #8a8684;
+  --color-warm-stone: #8a8684;
+  --color-border-muted: rgba(246, 243, 241, 0.12);
+
+  --shadow-md: rgba(255, 255, 255, 0.06) 0px 0px 10px 0px;
+
+  --surface-parchment-canvas: #1a1a1a;
+  --surface-charcoal-surface: #e8e4e0;
 }
 
 section {
@@ -104,6 +114,8 @@ section {
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--surface-parchment-canvas);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body {
@@ -174,26 +186,7 @@ button {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-in {
-  /* opacity: 0; Removed to prevent blank content if observer fails */
-}
 
-.animate-in--visible {
-  animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-in--fade {
-  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-in--delay-1 { animation-delay: 0.15s; }
-.animate-in--delay-2 { animation-delay: 0.3s; }
-.animate-in--delay-3 { animation-delay: 0.45s; }
-.animate-in--delay-4 { animation-delay: 0.6s; }
-.animate-in--delay-5 { animation-delay: 0.75s; }
-.animate-in--delay-6 { animation-delay: 0.9s; }
-.animate-in--delay-7 { animation-delay: 1.05s; }
-.animate-in--delay-8 { animation-delay: 1.2s; }
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -204,10 +197,5 @@ button {
     transition-duration: 0.01ms !important;
   }
 
-  .animate-in,
-  .animate-in--visible,
-  .animate-in--fade {
-    opacity: 1;
-    transform: none;
-  }
+
 }

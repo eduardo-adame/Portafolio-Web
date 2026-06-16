@@ -30,21 +30,21 @@ export default function Hero() {
         <span className="hero-photo-monogram" aria-hidden="true">EA</span>
       </div>
 
-      <p className="hero-greeting animate-in--visible">
+      <p className="hero-greeting">
         Hola, soy
       </p>
-      <h1 className="hero-name animate-in--visible">
+      <h1 className="hero-name">
         Eduardo Adame
       </h1>
-      <p className="hero-role animate-in--visible animate-in--delay-1">
+      <p className="hero-role">
         Full Stack Developer
       </p>
-      <p className="hero-description animate-in--visible animate-in--delay-1">
+      <p className="hero-description">
         Diseño, construyo, despliego y mantengo aplicaciones web modernas
         que resuelven problemas reales con código limpio y confiable.
       </p>
 
-      <div className="hero-socials animate-in--fade animate-in--delay-2">
+      <div className="hero-socials">
         {socials.map((s) => (
           <a key={s.label} href={s.href} className="hero-social-link" aria-label={s.label} target="_blank" rel="noopener noreferrer">
             {s.icon}
@@ -52,7 +52,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="hero-actions animate-in--fade animate-in--delay-3">
+      <div className="hero-actions">
         <a href="#projects" className="btn-filled">
           Ver mi trabajo
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

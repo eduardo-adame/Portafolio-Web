@@ -3,7 +3,7 @@
   max-width: var(--page-max-width);
   margin: 0 auto;
   text-align: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid var(--color-border-muted);
 }
 
 .contact-intro {
@@ -21,19 +21,40 @@
   flex-wrap: wrap;
 }
 
-.contact-email {
-  display: inline-block;
-  margin-top: var(--spacing-24);
-  font-size: var(--text-body);
-  letter-spacing: var(--tracking-body);
-  color: var(--color-graphite);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--color-warm-stone);
+/* --- Blueprint reveal --- */
+
+.contact-heading-reveal {
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.contact-email:hover {
-  color: var(--color-ink-black);
+.contact-intro-reveal {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.contact-actions-reveal {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+/* Copied pulse */
+.btn-copied {
+  animation: success-pulse 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes success-pulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-heading-reveal,
+  .contact-intro-reveal,
+  .contact-actions-reveal,
+  .btn-copied {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 768px) {

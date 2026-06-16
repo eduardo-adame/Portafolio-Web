@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 import './Nav.css'
 
 const links = [
@@ -12,6 +13,7 @@ const links = [
 const sectionIds = ['hero', 'about', 'skills', 'projects', 'experience', 'contact']
 
 export default function Nav() {
+  const { theme, toggle: toggleTheme } = useTheme()
   const [active, setActive] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
   const [downloading, setDownloading] = useState(false)
@@ -114,9 +116,7 @@ export default function Nav() {
   }
 
   return (
-    <>
-      <a href="#main" className="skip-link">Saltar al contenido</a>
-      <nav className="nav" role="navigation" aria-label="Navegación principal">
+    <nav className="nav" role="navigation" aria-label="Navegación principal">
       <a href="#hero" className="nav-brand" onClick={closeMenu}>E.A</a>
 
       <ul className={`nav-links${menuOpen ? ' nav-links--open' : ''}`} ref={menuRef}>
@@ -133,6 +133,23 @@ export default function Nav() {
           </li>
         ))}
         <li className="nav-links-actions">
+          <button
+            type="button"
+            className="theme-toggle-mobile"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+          >
+            {theme === 'dark' ? (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.3" />
+                <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.5 2.5l1.5 1.5M12 12l1.5 1.5M2.5 13.5l1.5-1.5M12 4l1.5-1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M13.5 9.5A6 6 0 0 1 6.5 2.5 6 6 0 1 0 13.5 9.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+              </svg>
+            )}
+          </button>
           <a href="#contact" className="btn-ghost" onClick={closeMenu}>Contactar</a>
           <a
             href={`${import.meta.env.BASE_URL}CV.pdf`}
@@ -146,6 +163,23 @@ export default function Nav() {
       </ul>
 
       <div className="nav-actions">
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+        >
+          {theme === 'dark' ? (
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.3" />
+              <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.5 2.5l1.5 1.5M12 12l1.5 1.5M2.5 13.5l1.5-1.5M12 4l1.5-1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+            </svg>
+          ) : (
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13.5 9.5A6 6 0 0 1 6.5 2.5 6 6 0 1 0 13.5 9.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+            </svg>
+          )}
+        </button>
         <a href="#contact" className="btn-ghost" onClick={closeMenu}>Contactar</a>
         <a
           href={`${import.meta.env.BASE_URL}CV.pdf`}
@@ -180,6 +214,5 @@ export default function Nav() {
         </div>
       )}
     </nav>
-    </>
   )
 }

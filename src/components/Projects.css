@@ -19,13 +19,6 @@
   border-radius: var(--radius-cards);
   padding: var(--card-padding);
   box-shadow: var(--shadow-md);
-  position: relative;
-  overflow: hidden;
-}
-
-.project-card-text {
-  position: relative;
-  z-index: 1;
 }
 
 .project-card-text h3 {
@@ -79,93 +72,6 @@
   letter-spacing: 0;
 }
 
-/* --- Decorative watercolor panel --- */
-
-.project-card-decor {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.project-card--architecture .project-card-decor {
-  width: 50%;
-}
-
-.project-card--fullwidth .project-card-decor {
-  width: 250px;
-}
-
-.project-card--compact .project-card-decor {
-  width: 250px;
-}
-
-/* --- Shared abstract shapes --- */
-
-.gradient-blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.gradient-blob--peach {
-  width: 240px;
-  height: 210px;
-  background: rgba(255, 148, 115, 0.4);
-  filter: blur(35px);
-  top: 5%;
-  right: 5%;
-}
-
-.gradient-blob--lavender {
-  width: 260px;
-  height: 220px;
-  background: rgba(160, 181, 235, 0.35);
-  filter: blur(35px);
-  bottom: -5%;
-  left: 5%;
-}
-
-.gradient-blob--mint {
-  width: 210px;
-  height: 180px;
-  background: rgba(167, 252, 205, 0.3);
-  filter: blur(30px);
-  bottom: 15%;
-  right: 20%;
-}
-
-.gradient-blob--amber {
-  width: 190px;
-  height: 230px;
-  background: rgba(226, 193, 97, 0.3);
-  filter: blur(30px);
-  top: 18%;
-  left: 20%;
-}
-
-.gradient-shape--square {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 30%;
-  background: rgba(160, 181, 235, 0.4);
-  filter: blur(12px);
-  top: 55%;
-  right: 28%;
-}
-
-.gradient-dot {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  filter: blur(2px);
-  pointer-events: none;
-}
-
 /* --- Architecture layout --- */
 
 .project-results {
@@ -209,7 +115,7 @@
   flex-direction: column;
   gap: var(--spacing-4);
   padding: var(--spacing-16);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--color-border-muted);
   border-radius: var(--radius-inputs);
 }
 
@@ -242,7 +148,6 @@
 .project-decision-callout {
   padding: var(--spacing-20);
   border: 1px solid var(--color-ink-black);
-  background: var(--surface-parchment-canvas);
   border-radius: var(--radius-inputs);
 }
 
@@ -262,15 +167,42 @@
   color: var(--color-graphite);
 }
 
+/* --- Blueprint reveal --- */
+
+.projects-heading-reveal {
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.project-card-reveal {
+  animation: card-lift 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 120ms);
+}
+
+@keyframes card-lift {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-heading-reveal,
+  .project-card-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* --- Responsive --- */
 
 @media (max-width: 768px) {
   .projects {
     padding: var(--spacing-40) var(--spacing-16);
-  }
-
-  .project-card-decor {
-    display: none;
   }
 
   .project-decisions {

@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import './Footer.css'
 
 const groups = [
@@ -5,7 +6,7 @@ const groups = [
     heading: 'Navegación',
     links: [
       { label: 'Sobre mí', href: '#about' },
-      { label: 'Skills', href: '#skills' },
+      { label: 'Habilidades', href: '#skills' },
       { label: 'Proyectos', href: '#projects' },
       { label: 'Experiencia', href: '#experience' },
       { label: 'Contacto', href: '#contact' },
@@ -27,8 +28,10 @@ const groups = [
 ]
 
 export default function Footer() {
+  const { ref, inView } = useInView()
+
   return (
-    <footer className="footer">
+    <footer className={`footer ${inView ? 'footer-reveal' : ''}`} ref={ref}>
       <div className="footer-inner">
         {groups.map((group) => (
           <div key={group.heading}>

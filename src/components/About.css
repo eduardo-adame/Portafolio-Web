@@ -5,13 +5,14 @@
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--spacing-40);
-  align-items: start;
+  max-width: 65ch;
 }
 
-.about-text p {
+.about-content .section-heading {
+  margin-bottom: var(--spacing-24);
+}
+
+.about-content p {
   font-size: var(--text-body);
   letter-spacing: var(--tracking-body);
   line-height: 1.7;
@@ -19,76 +20,36 @@
   color: var(--color-graphite);
 }
 
-.about-manifesto {
-  padding: var(--spacing-32);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: var(--radius-cards);
-  background: linear-gradient(135deg, var(--surface-warm-card) 0%, #f5e8dc 100%);
-  position: relative;
-  overflow: hidden;
+/* --- Blueprint reveal --- */
+
+.about-reveal .about-heading {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
-.about-manifesto::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -20%;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(255, 148, 115, 0.12);
-  filter: blur(40px);
-  pointer-events: none;
+.about-reveal .about-body {
+  animation: blueprint-wipe 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
-.about-manifesto-label {
-  display: block;
-  font-family: var(--font-abc-diatype-mono);
-  font-size: var(--text-caption);
-  letter-spacing: normal;
-  color: var(--color-warm-stone);
-  margin-bottom: var(--spacing-12);
+@keyframes blueprint-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
-.about-manifesto blockquote {
-  margin: 0;
-}
-
-.about-manifesto blockquote p {
-  font-family: var(--font-untitled-serif);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--text-heading-sm);
-  letter-spacing: var(--tracking-heading-sm);
-  line-height: 1.35;
-  color: var(--color-ink-black);
-  max-width: 30ch;
-  margin-bottom: 0;
-}
-
-.about-manifesto-cite {
-  display: block;
-  font-family: var(--font-abc-diatype-mono);
-  font-size: var(--text-caption);
-  letter-spacing: normal;
-  font-style: normal;
-  color: var(--color-graphite);
-  margin-top: var(--spacing-16);
+@media (prefers-reduced-motion: reduce) {
+  .about-heading,
+  .about-body {
+    animation: none;
+    clip-path: none;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
   .about {
     padding: var(--spacing-40) var(--spacing-16);
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-
-  .about-manifesto {
-    padding: var(--spacing-24);
-  }
-
-  .about-manifesto blockquote p {
-    font-size: var(--text-subheading);
   }
 }

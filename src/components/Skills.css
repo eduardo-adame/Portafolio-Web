@@ -52,6 +52,54 @@
   flex-shrink: 0;
 }
 
+/* --- Blueprint reveal --- */
+
+.skills-heading-reveal {
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.skills-row-reveal {
+  animation: row-enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@keyframes row-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-pill-reveal {
+  animation: pill-stamp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms + var(--j, 0) * 30ms);
+}
+
+@keyframes pill-stamp {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-heading-reveal,
+  .skills-row-reveal,
+  .skill-pill-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   .skills {
     padding: var(--spacing-24) var(--spacing-16) var(--spacing-40);
