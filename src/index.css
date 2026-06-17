@@ -1,12 +1,14 @@
 :root {
-  /* Colors */
-  --color-parchment-cream: #f6f3f1;
-  --color-ink-black: #000000;
-  --color-charcoal: #242424;
-  --color-graphite: #4e4d4d;
-  --color-slate-shadow: #3d3d3d;
-  --color-warm-stone: #666463;
-  --color-border-muted: rgba(0, 0, 0, 0.12);
+  /* Colors — dark mode default (Dovetail) */
+  --color-soft-indigo: #6798ff;
+  --color-parchment-cream: #141414;
+  --color-ink-black: #ffffff;
+  --color-charcoal: #e8e4e0;
+  --color-graphite: #a7a7a7;
+  --color-slate-shadow: #8a8684;
+  --color-warm-stone: #7c7c7c;
+  --color-border-muted: rgba(255, 255, 255, 0.12);
+
   /* Font Families */
   --font-untitled-serif: 'Untitled Serif', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-abc-diatype-mono: 'ABC Diatype Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -68,7 +70,7 @@
   --radius-buttons: 100px;
 
   /* Shadows */
-  --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
+  --shadow-md: none;
 
   /* Z-Index Scale */
   --z-dropdown: 10;
@@ -79,23 +81,24 @@
   --z-tooltip: 60;
 
   /* Surfaces */
-  --surface-parchment-canvas: #f6f3f1;
-  --surface-charcoal-surface: #242424;
+  --surface-parchment-canvas: #0a0a0a;
+  --surface-charcoal-surface: #141414;
 }
 
-[data-theme='dark'] {
-  --color-parchment-cream: #1a1a1a;
-  --color-ink-black: #f6f3f1;
-  --color-charcoal: #e8e4e0;
-  --color-graphite: #a8a4a2;
-  --color-slate-shadow: #8a8684;
-  --color-warm-stone: #8a8684;
-  --color-border-muted: rgba(246, 243, 241, 0.12);
+[data-theme='light'] {
+  --color-soft-indigo: #6798ff;
+  --color-parchment-cream: #f6f3f1;
+  --color-ink-black: #000000;
+  --color-charcoal: #242424;
+  --color-graphite: #4e4d4d;
+  --color-slate-shadow: #3d3d3d;
+  --color-warm-stone: #666463;
+  --color-border-muted: rgba(0, 0, 0, 0.12);
 
-  --shadow-md: rgba(255, 255, 255, 0.06) 0px 0px 10px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
 
-  --surface-parchment-canvas: #0a0a0a;
-  --surface-charcoal-surface: #e8e4e0;
+  --surface-parchment-canvas: #f6f3f1;
+  --surface-charcoal-surface: #242424;
 }
 
 section {

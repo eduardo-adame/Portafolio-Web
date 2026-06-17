@@ -211,6 +211,10 @@
     background: rgba(0, 0, 0, 0.03);
   }
 
+  [data-theme='dark'] .nav-link--active {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
   .nav-link:focus-visible {
     outline: 2px solid var(--color-ink-black);
     outline-offset: -2px;

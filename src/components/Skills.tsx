@@ -37,32 +37,6 @@ const iconMap: Record<string, IconType> = {
   'Figma': SiFigma,
 }
 
-const iconColor: Record<string, string> = {
-  'React': '#61DAFB',
-  'TypeScript': '#3178C6',
-  'HTML/CSS': '#E34F26',
-  'Next.js': '#000000',
-  'Tailwind CSS': '#06B6D4',
-  'JavaScript': '#F7DF1E',
-  'Python': '#3776AB',
-  'Spring Boot': '#6DB33F',
-  'Laravel': '#FF2D20',
-  'Java': '#ED8B00',
-  'Node.js': '#339933',
-  'PostgreSQL': '#4169E1',
-  'MongoDB': '#47A248',
-  'MySQL': '#4479A1',
-  'SQLITE': '#003B57',
-  'AWS': '#FF9900',
-  'Docker': '#2496ED',
-  'Linux': '#FCC624',
-  'Nginx': '#009639',
-  'Google Cloud': '#4285F4',
-  'Git': '#F05032',
-  'VS Code': '#007ACC',
-  'Figma': '#F24E1E',
-}
-
 const domains = [
   {
     name: 'Frontend',
@@ -107,7 +81,7 @@ export default function Skills() {
                     className={`skill-pill ${inView ? 'skill-pill-reveal' : ''}`}
                     style={{ '--j': j } as React.CSSProperties}
                   >
-                    {Icon && <Icon size={14} style={{ color: iconColor[item] }} aria-hidden="true" />}
+                    {Icon && <Icon size={14} aria-hidden="true" />}
                     {item}
                   </span>
                 )
