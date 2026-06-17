@@ -8,11 +8,11 @@ export default function Contact() {
 
   async function copyEmail() {
     try {
-      await navigator.clipboard.writeText('hello@cesar.dev')
+      await navigator.clipboard.writeText('cesaradame624@gmail.com')
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      window.location.href = 'mailto:hello@cesar.dev'
+      window.location.href = 'mailto:cesaradame624@gmail.com'
     }
   }
 
@@ -26,7 +26,7 @@ export default function Contact() {
         conversaciones interesantes y nuevas oportunidades.
       </p>
       <div className={`contact-actions ${inView ? 'contact-actions-reveal' : ''}`}>
-        <a href="mailto:hello@cesar.dev" className="btn-filled">
+        <a href="mailto:cesaradame624@gmail.com" className="btn-filled">
           Enviar correo
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -40,6 +40,9 @@ export default function Contact() {
           {copied ? '¡Copiado!' : 'Copiar correo'}
         </button>
       </div>
+      <p className="contact-email-link">
+        <a href="mailto:cesaradame624@gmail.com">cesaradame624@gmail.com</a>
+      </p>
     </section>
   )
 }

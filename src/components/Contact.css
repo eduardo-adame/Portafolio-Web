@@ -21,6 +21,23 @@
   flex-wrap: wrap;
 }
 
+.contact-email-link {
+  margin-top: var(--spacing-24);
+}
+
+.contact-email-link a {
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-body);
+  color: var(--color-graphite);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s;
+}
+
+.contact-email-link a:hover {
+  color: var(--color-ink-black);
+}
+
 /* --- Blueprint reveal --- */
 
 .contact-heading-reveal {

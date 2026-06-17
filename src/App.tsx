@@ -1,4 +1,5 @@
 import './App.css'
+import BlueprintBg from './components/BlueprintBg'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -11,6 +12,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <>
+      <BlueprintBg />
       <Nav />
       <main>
         <Hero />

@@ -7,7 +7,6 @@
   --color-slate-shadow: #3d3d3d;
   --color-warm-stone: #666463;
   --color-border-muted: rgba(0, 0, 0, 0.12);
-
   /* Font Families */
   --font-untitled-serif: 'Untitled Serif', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-abc-diatype-mono: 'ABC Diatype Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -95,7 +94,7 @@
 
   --shadow-md: rgba(255, 255, 255, 0.06) 0px 0px 10px 0px;
 
-  --surface-parchment-canvas: #1a1a1a;
+  --surface-parchment-canvas: #0a0a0a;
   --surface-charcoal-surface: #e8e4e0;
 }
 
@@ -120,7 +119,6 @@ html {
 
 body {
   position: relative;
-  background: var(--surface-parchment-canvas);
   color: var(--color-ink-black);
   font-family: var(--font-abc-diatype-mono);
   font-size: var(--text-body);
@@ -185,8 +183,6 @@ button {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-
 
 @media (prefers-reduced-motion: reduce) {
   *,

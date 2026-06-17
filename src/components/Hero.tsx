@@ -13,7 +13,7 @@ const socials: { icon: ReactNode; label: string; href: string }[] = [
   },
   {
     label: 'Email',
-    href: 'mailto:hello@cesar.dev',
+    href: 'mailto:cesaradame624@gmail.com',
     icon: (
       <svg viewBox="0 0 19 19" fill="none" aria-hidden="true">
         <rect x="2" y="4.5" width="15" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
@@ -63,7 +63,7 @@ export default function Hero() {
       </div>
 
       <a href="#about" className="hero-scroll" aria-label="Desplázate para conocer más">
-        <span className="hero-scroll-text">Desplaza</span>
+        <span className="hero-scroll-text">Desplázate</span>
         <svg width="16" height="24" viewBox="0 0 16 24" fill="none" aria-hidden="true">
           <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="1.5" />
           <circle cx="8" cy="8" r="2" fill="currentColor" className="hero-scroll-dot" />

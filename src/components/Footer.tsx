@@ -16,13 +16,19 @@ const groups = [
     heading: 'Redes',
     links: [
       { label: 'GitHub', href: 'https://github.com/eduardo-adame' },
-      { label: 'Correo', href: 'mailto:hello@cesar.dev' },
+      { label: 'Correo', href: 'mailto:cesaradame624@gmail.com' },
     ],
   },
   {
     heading: 'Recursos',
     links: [
       { label: 'Descargar CV', href: `${import.meta.env.BASE_URL}CV.pdf` },
+    ],
+  },
+  {
+    heading: 'Contacto',
+    links: [
+      { label: 'cesaradame624@gmail.com', href: 'mailto:cesaradame624@gmail.com' },
     ],
   },
 ]

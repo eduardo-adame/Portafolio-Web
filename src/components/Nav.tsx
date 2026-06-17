@@ -75,6 +75,7 @@ export default function Nav() {
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
+      if (document.activeElement && ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return
       const current = active || 'hero'
       const idx = sectionIds.indexOf(current)
       if (e.key === 'ArrowUp' || e.key === 'k') {
