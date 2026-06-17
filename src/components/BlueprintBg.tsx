@@ -17,7 +17,7 @@ export default function BlueprintBg() {
           </pattern>
         </defs>
 
-        <rect width="100%" height="100%" fill={`url(#${gridId})`} opacity="0.12" />
+        <rect width="100%" height="100%" fill={`url(#${gridId})`} className="bg-grid-overlay" />
       </svg>
     </div>
   )

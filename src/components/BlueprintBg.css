@@ -15,4 +15,12 @@
   display: block;
 }
 
+.bg-grid-overlay {
+  opacity: 0.18;
+}
+
+[data-theme='dark'] .bg-grid-overlay {
+  opacity: 0.12;
+}
+
 
