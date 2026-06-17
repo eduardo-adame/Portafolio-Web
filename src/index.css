@@ -1,13 +1,13 @@
 :root {
-  /* Colors — dark mode default (Dovetail) */
+  /* Colors — light mode default */
   --color-soft-indigo: #6798ff;
-  --color-parchment-cream: #141414;
-  --color-ink-black: #ffffff;
-  --color-charcoal: #e8e4e0;
-  --color-graphite: #a7a7a7;
-  --color-slate-shadow: #8a8684;
-  --color-warm-stone: #7c7c7c;
-  --color-border-muted: rgba(255, 255, 255, 0.12);
+  --color-parchment-cream: #f6f3f1;
+  --color-ink-black: #000000;
+  --color-charcoal: #242424;
+  --color-graphite: #4e4d4d;
+  --color-slate-shadow: #3d3d3d;
+  --color-warm-stone: #666463;
+  --color-border-muted: rgba(0, 0, 0, 0.12);
 
   /* Font Families */
   --font-untitled-serif: 'Untitled Serif', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -70,7 +70,7 @@
   --radius-buttons: 100px;
 
   /* Shadows */
-  --shadow-md: none;
+  --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
 
   /* Z-Index Scale */
   --z-dropdown: 10;
@@ -81,32 +81,32 @@
   --z-tooltip: 60;
 
   /* Surfaces */
-  --surface-parchment-canvas: #0a0a0a;
-  --surface-charcoal-surface: #141414;
-
-  /* Component-level tokens */
-  --color-card-border: rgba(255, 255, 255, 0.2);
-  --color-card-bg: #141414;
-}
-
-[data-theme='light'] {
-  --color-soft-indigo: #6798ff;
-  --color-parchment-cream: #f6f3f1;
-  --color-ink-black: #000000;
-  --color-charcoal: #242424;
-  --color-graphite: #4e4d4d;
-  --color-slate-shadow: #3d3d3d;
-  --color-warm-stone: #666463;
-  --color-border-muted: rgba(0, 0, 0, 0.12);
-
-  --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
-
   --surface-parchment-canvas: #f6f3f1;
   --surface-charcoal-surface: #242424;
 
   /* Component-level tokens */
   --color-card-border: var(--color-ink-black);
   --color-card-bg: var(--surface-parchment-canvas);
+}
+
+[data-theme='dark'] {
+  --color-soft-indigo: #6798ff;
+  --color-parchment-cream: #141414;
+  --color-ink-black: #ffffff;
+  --color-charcoal: #e8e4e0;
+  --color-graphite: #a7a7a7;
+  --color-slate-shadow: #8a8684;
+  --color-warm-stone: #7c7c7c;
+  --color-border-muted: rgba(255, 255, 255, 0.12);
+
+  --shadow-md: none;
+
+  --surface-parchment-canvas: #0a0a0a;
+  --surface-charcoal-surface: #141414;
+
+  /* Component-level tokens */
+  --color-card-border: rgba(255, 255, 255, 0.2);
+  --color-card-bg: #141414;
 }
 
 section {
